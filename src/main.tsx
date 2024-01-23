@@ -5,10 +5,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout.tsx";
 import Home from "./pages/Home.tsx";
 import AuthenticatedLayout from "./layouts/AuthenticatedLayout.tsx";
-import Dashboard from "./pages/Dashboard.tsx";
 import PageNotExists from "./pages/PageNotExists.tsx";
 import Signin from "./pages/auth/Signin.tsx";
 import Signup from "./pages/auth/Signup.tsx";
+import CreateTask from "./pages/task/Create.tsx";
 
 import "../static/output.css";
 
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
                 element: <AuthenticatedLayout />,
                 children: [
                     {
-                        path: "/dashboard",
-                        element: <Dashboard />,
+                        path: "/task",
+                        element: <CreateTask />,
                     },
                 ],
             },

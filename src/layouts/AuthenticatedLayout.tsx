@@ -4,13 +4,13 @@ import { Outlet, useNavigate } from "react-router-dom";
 
 export default function AuthenticatedLayout() {
     const navigate = useNavigate();
-    const { isSignedIn } = useUser();
+    const { isLoaded, isSignedIn } = useUser();
 
     useEffect(() => {
-        if (!isSignedIn) {
+        if (isLoaded && !isSignedIn) {
             navigate("/");
         }
-    }, [isSignedIn, navigate]);
+    }, [isLoaded, isSignedIn, navigate]);
 
     if (!isSignedIn) return null;
 

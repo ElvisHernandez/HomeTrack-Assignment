@@ -1,7 +1,16 @@
 import { SignedIn, SignedOut, useUser } from "@clerk/clerk-react";
 
 export default function Home() {
-    const { user } = useUser();
+    const { isLoaded, user } = useUser();
+
+    if (!isLoaded) {
+        return (
+            <div className="h-full flex justify-center items-center">
+                <span className="loading loading-spinner loading-lg mt-[16px]"></span>
+            </div>
+        );
+    }
+
     return (
         <>
             <SignedIn>

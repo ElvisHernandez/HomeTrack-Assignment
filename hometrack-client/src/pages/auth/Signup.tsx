@@ -40,19 +40,29 @@ export default function Signup() {
     const validateForm = () => {
         const { email, password, passwordConfirmation } = inputs;
 
+        let formHasError = false;
+
         if (!email || !email.includes("@")) {
             const errMsg = "Invalid Email";
             updateInputError("email", errMsg);
-            throw errMsg;
+            formHasError = true;
+        } else {
+            updateInputError("email", "");
         }
 
         if (password !== passwordConfirmation) {
             const errMsg = "Password and Password confirmation do not match";
             updateInputError("password", errMsg);
-            throw errMsg;
+            formHasError = true;
+        } else {
+            updateInputError("password", "");
         }
 
-        setInputErrors(initialInputErrorState);
+        if (formHasError) {
+            throw "There was an error";
+        } else {
+            setInputErrors(initialInputErrorState);
+        }
     };
 
     // start the sign up process.

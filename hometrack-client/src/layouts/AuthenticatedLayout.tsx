@@ -12,7 +12,7 @@ export default function AuthenticatedLayout() {
         }
     }, [isSignedIn, navigate]);
 
-    if (!isSignedIn) return <></>;
+    if (!isSignedIn) return null;
 
     return (
         <>

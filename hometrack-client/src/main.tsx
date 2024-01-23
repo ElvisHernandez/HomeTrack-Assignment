@@ -7,9 +7,10 @@ import Home from "./pages/Home.tsx";
 import AuthenticatedLayout from "./layouts/AuthenticatedLayout.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import PageNotExists from "./pages/PageNotExists.tsx";
+import Signin from "./pages/auth/Signin.tsx";
+import Signup from "./pages/auth/Signup.tsx";
 
 import "../static/output.css";
-import { SignIn, SignUp } from "@clerk/clerk-react";
 
 const router = createBrowserRouter([
     {
@@ -22,11 +23,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/signin",
-                element: <SignIn />,
+                element: <Signin />,
             },
             {
                 path: "/signup",
-                element: <SignUp />,
+                element: <Signup />,
             },
             {
                 element: <AuthenticatedLayout />,

@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { TaskForm } from "./TaskForm";
+import { FormEvent, useContext, useState } from "react";
+import { TaskForm } from "../../components/TaskForm";
 import { DataContext, Task } from "../../data/context";
 import { useNavigate } from "react-router-dom";
 
@@ -54,7 +54,9 @@ export default function Create() {
         }
     };
 
-    const onSubmit = () => {
+    const onSubmit = (e: FormEvent) => {
+        e.preventDefault();
+
         try {
             validate();
             addTask(task);
@@ -63,7 +65,7 @@ export default function Create() {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center h-full">
+        <>
             <h1 className="mb-[32px] text-[32px]">Create your new Task</h1>
             <TaskForm
                 task={task}
@@ -71,6 +73,6 @@ export default function Create() {
                 changeHandler={updateTask}
                 submitHandler={onSubmit}
             />
-        </div>
+        </>
     );
 }

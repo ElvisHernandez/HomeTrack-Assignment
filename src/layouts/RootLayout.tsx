@@ -2,6 +2,7 @@ import { ClerkProvider, UserButton, useUser } from "@clerk/clerk-react";
 import { Link, Outlet } from "react-router-dom";
 import { footerHeight, headerNavHeight } from "../constants";
 import { DataContextProvider } from "../data/context";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 // Import your publishable key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
@@ -17,6 +18,7 @@ export default function RootLayout() {
                 <div className="h-screen">
                     <Header />
                     <div
+                        className="flex flex-col justify-center items-center"
                         style={{
                             height: `calc(100vh - ${headerNavHeight} - ${footerHeight})`,
                         }}
@@ -24,13 +26,24 @@ export default function RootLayout() {
                         <Outlet />
                     </div>
                     <footer
+                        className="flex justify-end items-center fixed w-screen bottom-0 bg-secondary p-[16px]"
                         style={{
-                            position: "fixed",
-                            bottom: 0,
                             height: footerHeight,
                         }}
                     >
-                        My Footer
+                        <a
+                            href="https://www.linkedin.com/in/elvis-hernandez-dev/"
+                            target="_blank"
+                            className="mr-[24px]"
+                        >
+                            <FaLinkedin className="scale-[2]" />
+                        </a>
+                        <a
+                            href="https://github.com/ElvisHernandez/HomeTrack-Assignment"
+                            target="_blank"
+                        >
+                            <FaGithub className="scale-[2]" />
+                        </a>
                     </footer>
                 </div>
             </DataContextProvider>

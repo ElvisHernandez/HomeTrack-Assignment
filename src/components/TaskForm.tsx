@@ -1,5 +1,5 @@
-import { ChangeEvent, useState } from "react";
-import { Task } from "../../data/context";
+import { ChangeEvent, FormEvent, useContext, useState } from "react";
+import { DataContext, Task } from "../data/context";
 
 type TaskFormProps = {
     task: Task;
@@ -8,13 +8,18 @@ type TaskFormProps = {
         inputName: keyof Task,
         inputVal: string | number | boolean
     ) => void;
-    submitHandler: () => void;
+    submitHandler: (e: FormEvent) => void;
 };
 
 export function TaskForm(props: TaskFormProps) {
     const { task, taskErrors, changeHandler, submitHandler } = props;
 
     const [presubmitError, setPresubmitError] = useState("");
+
+    const { tasks } = useContext(DataContext);
+
+    // We'll use the existence of the task to determine wether this is a Create or Update form instance
+    const taskExists = () => !!tasks.find((t) => t.id === task.id);
 
     const onPhotoChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (!e.target.files?.[0]) return;
@@ -108,7 +113,9 @@ export function TaskForm(props: TaskFormProps) {
             </div>
 
             <div className="flex justify-center mt-[16px]">
-                <button className="btn btn-success">Create Task</button>
+                <button className="btn btn-success">
+                    {taskExists() ? "Update Task" : "Create Task"}
+                </button>
             </div>
 
             {!!presubmitError && (

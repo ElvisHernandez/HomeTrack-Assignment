@@ -12,6 +12,8 @@ type ContextData = {
     selectedTaskPhoto: string;
     setSelectedTaskPhoto: (photo: string) => void;
     addTask: (task: Task) => void;
+    updateTask: (task: Task) => void;
+    deleteTask: (taskId: number) => void;
 };
 
 const initialContextData: ContextData = {
@@ -21,6 +23,10 @@ const initialContextData: ContextData = {
     setSelectedTaskPhoto: (_p: string) => {},
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     addTask: (_t: Task) => {},
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    updateTask: (_t: Task) => {},
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    deleteTask: (_taskId: number) => {},
 };
 
 export const DataContext = createContext<ContextData>(initialContextData);
@@ -36,9 +42,32 @@ export function DataContextProvider(props: PropsWithChildren) {
         setTasks((prevTasks) => [...prevTasks, newTask]);
     };
 
+    const updateTask = (updatedTask: Task) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) => {
+                if (task.id === updatedTask.id) {
+                    return updatedTask;
+                } else {
+                    return task;
+                }
+            })
+        );
+    };
+
+    const deleteTask = (taskId: number) => {
+        setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+    };
+
     return (
         <DataContext.Provider
-            value={{ tasks, addTask, selectedTaskPhoto, setSelectedTaskPhoto }}
+            value={{
+                tasks,
+                addTask,
+                updateTask,
+                deleteTask,
+                selectedTaskPhoto,
+                setSelectedTaskPhoto,
+            }}
         >
             {props.children}
         </DataContext.Provider>

@@ -1,9 +1,10 @@
 import { MdCancel, MdDone } from "react-icons/md";
-import { DataContext, Task as TaskType } from "../../data/context";
+import { DataContext, Task as TaskType } from "../data/context";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 const completedIconStyle = (completed: boolean) => ({
-    color: completed ? "green" : "red",
+    color: completed ? "green" : "yellow",
     transform: "scale(1.5)",
     marginRight: "16px",
 });
@@ -11,7 +12,8 @@ const completedIconStyle = (completed: boolean) => ({
 export function Task(props: { task: TaskType }) {
     const { task } = props;
 
-    const { setSelectedTaskPhoto } = useContext(DataContext);
+    const { setSelectedTaskPhoto, deleteTask } = useContext(DataContext);
+    const navigate = useNavigate();
 
     const selectTaskPhoto = () => {
         const dialog = document?.getElementById(
@@ -46,7 +48,18 @@ export function Task(props: { task: TaskType }) {
                     >
                         View Photo
                     </button>
-                    <button className="btn btn-primary">Edit</button>
+                    <button
+                        onClick={() => navigate(`/task/${task.id}`)}
+                        className="btn btn-primary mr-[8px]"
+                    >
+                        Edit
+                    </button>
+                    <button
+                        onClick={() => deleteTask(task.id)}
+                        className="btn btn-error"
+                    >
+                        Delete
+                    </button>
                 </div>
             </div>
         </div>

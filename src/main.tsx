@@ -11,6 +11,7 @@ import Signup from "./pages/auth/Signup.tsx";
 import CreateTask from "./pages/task/Create.tsx";
 
 import "../static/output.css";
+import UpdateTask from "./pages/task/Update.tsx";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
                     {
                         path: "/task",
                         element: <CreateTask />,
+                    },
+                    {
+                        path: "/task/:taskId",
+                        element: <UpdateTask />,
                     },
                 ],
             },

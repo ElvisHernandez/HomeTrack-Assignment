@@ -2,7 +2,7 @@
 
 Todo list built with [ReactJS](https://react.dev/learn/installation), [Tailwind CSS](https://tailwindcss.com/docs/installation), and [Daisy UI](https://daisyui.com/docs/install/)
 
-<a href="https://gyazo.com/05672c4ffbf9474f60a36168d7bbf0c0"><video width="1280" autoplay muted loop playsinline controls><source src="https://i.gyazo.com/05672c4ffbf9474f60a36168d7bbf0c0.mp4" type="video/mp4"/></video></a>
+Here's a link to a quick [demo](https://gyazo.com/05672c4ffbf9474f60a36168d7bbf0c0)
 
 To run the project
 

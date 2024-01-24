@@ -38,7 +38,7 @@ export default function Home() {
             </SignedOut>
 
             <dialog id="task_photo_modal" className="modal">
-                <div className="modal-box min-h-[60%] min-w-[60%]">
+                <div className="modal-box min-h-[30%] md:min-h-[30%] min-w-[30%] md:min-w-[60%]">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">

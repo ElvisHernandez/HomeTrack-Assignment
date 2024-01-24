@@ -34,11 +34,11 @@ const router = createBrowserRouter([
                 element: <AuthenticatedLayout />,
                 children: [
                     {
-                        path: "/task",
+                        path: "/tasks",
                         element: <CreateTask />,
                     },
                     {
-                        path: "/task/:taskId",
+                        path: "/tasks/:taskId",
                         element: <UpdateTask />,
                     },
                 ],

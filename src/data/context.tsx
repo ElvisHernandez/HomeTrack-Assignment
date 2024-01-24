@@ -34,14 +34,37 @@ export const DataContext = createContext<ContextData>(initialContextData);
 export let taskId = 0;
 
 export function DataContextProvider(props: PropsWithChildren) {
+    // Tasks would typically be fetched from some backend API Layer that can talk to the database. e.g.
+    // GET {
+    //     path: 'https://<api-url/tasks',
+    //     headers: {
+    //         "Authorization": "Bearer <user-session>"
+    //     }
+    // }
     const [tasks, setTasks] = useState<Array<Task>>([]);
     const [selectedTaskPhoto, setSelectedTaskPhoto] = useState("");
 
+    // This would typically be a post request to the API layer
+    // POST {
+    //     path: 'https://<api-url/tasks',
+    //     headers: {
+    //         "Authorization": "Bearer <user-session>"
+    //     },
+    //     body: JSON.stringify({ task })
+    // }
     const addTask = (task: Task) => {
         const newTask = { ...task, id: ++taskId };
         setTasks((prevTasks) => [...prevTasks, newTask]);
     };
 
+    // This would typically be a patch request to the API layer to make a partial update
+    // PATCH {
+    //     path: 'https://<api-url/tasks/<task-id>',
+    //     headers: {
+    //         "Authorization": "Bearer <user-session>"
+    //     },
+    //     body: JSON.stringify({ task: 'Go buy water' })
+    // }
     const updateTask = (updatedTask: Task) => {
         setTasks((prevTasks) =>
             prevTasks.map((task) => {
@@ -54,6 +77,14 @@ export function DataContextProvider(props: PropsWithChildren) {
         );
     };
 
+    // This would typically be a delete request to the API layer
+    // DELETE {
+    //     path: 'https://<api-url/tasks/<task-id>',
+    //     headers: {
+    //         "Authorization": "Bearer <user-session>"
+    //     },
+    //     body: JSON.stringify({ task: 'Go buy water' })
+    // }
     const deleteTask = (taskId: number) => {
         setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
     };

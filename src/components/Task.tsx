@@ -49,7 +49,7 @@ export function Task(props: { task: TaskType }) {
                         View Photo
                     </button>
                     <button
-                        onClick={() => navigate(`/task/${task.id}`)}
+                        onClick={() => navigate(`/tasks/${task.id}`)}
                         className="btn btn-primary mr-[8px]"
                     >
                         Edit

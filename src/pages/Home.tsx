@@ -22,7 +22,7 @@ export default function Home() {
             <SignedIn>
                 <h1>Welcome {user?.primaryEmailAddress?.emailAddress}!</h1>
 
-                <Link className="btn btn-accent mt-[16px]" to="/task">
+                <Link className="btn btn-accent mt-[16px]" to="/tasks">
                     Create a new Task
                 </Link>
 
@@ -38,7 +38,7 @@ export default function Home() {
             </SignedOut>
 
             <dialog id="task_photo_modal" className="modal">
-                <div className="modal-box max-w-[none]">
+                <div className="modal-box min-h-[60%] min-w-[60%]">
                     <form method="dialog">
                         {/* if there is a button in form, it will close the modal */}
                         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
@@ -49,7 +49,7 @@ export default function Home() {
                     <img
                         src={selectedTaskPhoto}
                         alt="Photo of the current task"
-                        className="p-[16px]"
+                        className="max-w-full max-h-full p-[16px]"
                     />
                 </div>
             </dialog>

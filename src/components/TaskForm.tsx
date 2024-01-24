@@ -26,9 +26,9 @@ export function TaskForm(props: TaskFormProps) {
 
         const [photoFile] = e.target.files;
 
-        // dont allow files greater than a 1MB
-        if (photoFile.size > 1_000_000) {
-            setPresubmitError("Photo is not allowed to exceed to 1MB");
+        // dont allow files greater than a 5MB
+        if (photoFile.size > 5_000_000) {
+            setPresubmitError("Photo is not allowed to exceed to 5MB");
             cleanupPresubmitErrorMsg();
             return;
         }
@@ -45,7 +45,6 @@ export function TaskForm(props: TaskFormProps) {
             return;
         }
 
-        console.log("the file: ", photoFile);
         const url = URL.createObjectURL(photoFile);
 
         changeHandler("photo", url);
@@ -55,7 +54,7 @@ export function TaskForm(props: TaskFormProps) {
         setTimeout(() => setPresubmitError(""), 5000);
 
     return (
-        <form onSubmit={submitHandler} className="w-[512px]">
+        <form onSubmit={submitHandler} className="w-[256px] md:w-[512px]">
             <label className="form-control w-full">
                 <div className="label">
                     <span className="label-text">Enter your task(*)</span>

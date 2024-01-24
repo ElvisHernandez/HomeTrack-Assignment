@@ -18,7 +18,7 @@ export default function Home() {
     }
 
     return (
-        <div className="flex flex-col h-full justify-center items-center text-[32px]">
+        <div className="flex flex-col h-full justify-center items-center text-[16px] md:text-[32px] mt-[32px] md:mt-0">
             <SignedIn>
                 <h1>Welcome {user?.primaryEmailAddress?.emailAddress}!</h1>
 
@@ -26,7 +26,7 @@ export default function Home() {
                     Create a new Task
                 </Link>
 
-                <div className="w-[512px] text-[16px] mt-[16px]">
+                <div className="w-[364px] md:w-[512px] text-[16px] mt-[16px]">
                     {tasks.map((task) => (
                         <Task key={task.id} task={task} />
                     ))}
@@ -34,7 +34,7 @@ export default function Home() {
             </SignedIn>
 
             <SignedOut>
-                <h1>Please sign in to create and manage your tasks</h1>
+                <h1>Please sign-in/sign-up to create and manage your tasks</h1>
             </SignedOut>
 
             <dialog id="task_photo_modal" className="modal">

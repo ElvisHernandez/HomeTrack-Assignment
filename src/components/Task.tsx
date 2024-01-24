@@ -29,7 +29,7 @@ export function Task(props: { task: TaskType }) {
             className="mt-[8px] bg-secondary p-[16px] rounded-[2px]"
             key={task.id}
         >
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="flex items-center">
                     {task.completed && (
                         <MdDone style={completedIconStyle(task.completed)} />
@@ -41,7 +41,7 @@ export function Task(props: { task: TaskType }) {
                     <p>{task.task}</p>
                 </div>
 
-                <div>
+                <div className="mt-[16px] md:mt-0">
                     <button
                         onClick={selectTaskPhoto}
                         className="btn btn-primary mr-[8px]"

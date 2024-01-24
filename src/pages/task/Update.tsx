@@ -74,7 +74,9 @@ export default function Update() {
 
     return (
         <>
-            <h1 className="mb-[32px] text-[32px]">Update your Task!</h1>
+            <h1 className="mb-[32px] text-[32px] mt-[32px]">
+                Update your Task!
+            </h1>
             <TaskForm
                 task={taskClone}
                 taskErrors={taskErrors}

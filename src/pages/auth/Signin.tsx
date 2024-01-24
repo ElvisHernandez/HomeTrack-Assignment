@@ -117,7 +117,7 @@ export default function Signin() {
 
     return (
         <div className="flex justify-center items-center h-full">
-            <form className="flex flex-col items-center w-[512px]">
+            <form className="flex flex-col items-center w-[256px] md:w-[512px]">
                 <label className="form-control w-full">
                     <div className="label">
                         <span className="label-text">What is your email?</span>

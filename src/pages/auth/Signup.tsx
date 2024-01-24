@@ -154,7 +154,7 @@ export default function Signup() {
     return (
         <div className="flex justify-center items-center h-full">
             {!pendingVerification && (
-                <form className="flex flex-col items-center w-[512px]">
+                <form className="flex flex-col items-center w-[256px] md:w-[512px]">
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">

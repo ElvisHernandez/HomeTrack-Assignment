@@ -2,7 +2,7 @@
 
 Todo list built with [ReactJS](https://react.dev/learn/installation), [Tailwind CSS](https://tailwindcss.com/docs/installation), and [Daisy UI](https://daisyui.com/docs/install/)
 
-Here's a link to a quick [demo](https://gyazo.com/05672c4ffbf9474f60a36168d7bbf0c0)
+Here's a link to a quick [demo](https://gyazo.com/6f6dc86533ca118f691c90f2e3f8f83e)
 
 To run the project
 
